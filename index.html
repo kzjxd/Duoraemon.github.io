@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.doraemon {
+	position: relative;
+	/* //让元素可以自由定位le */
+	left: 300px;
+}
+
+.head {
+	margin-top: 20px;
+	width: 320px;
+	height: 300px;
+	border-radius: 150px;
+	background-color: #07bbee;
+	//右上角阴影跟左下角阴影
+	background: -moz-radial-gradient(right top, #fff 10%, #07bbee 20%, #10a6ce 75%, #000);
+	background: -webkit-radial-gradient(right top, #fff 10%, #07bbee 20%, #10a6ce 75%, #000);
+	background: -ms-radial-gradient(right top, #fff 10%, #07bbee 20%, #10a6ce 75%, #000);
+	border: black solid 2px;
+	box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.45);
+}
+
+.doraemon.face {
+	position: relative;
+	z-index: 3;
+}
+
+.white {
+	border: #000 solid 2px;
+	border-radius: 150px;
+	width: 265px;
+	height: 195px;
+	position: absolute;
+	top: 75px;
+	left: 25px;
+	background: white;
+	//使得脸的左下角暗一些
+	background: -moz-radial-gradient(right top, #fff 75%, #eee 80%, #999 90%, #444);
+	background: -webkit-radial-gradient(right top, #fff 75%, #eee 80%, #999 90%, #444);
+	background: -ms-radial-gradient(right top, #fff 75%, #eee 80%, #999 90%, #444);
+	z-index: 3;
+}
+
+.nose {
+	background-color: #c93300;
+	width: 30px;
+	height: 30px;
+	border: #000 solid 2px;
+	border-radius: 30px;
+	position: absolute;
+	top: 110px;
+	left: 140px;
+	z-index: 4;
+	/* 属性设定了一个定位元素及其后代元素或 flex 项目的 z-order。当元素之间重叠的时候，
+	z-index 较大的元素会覆盖较小的元素在上层进行显示。 */
+}
+
+.nose_light {
+	/* //鼻子高光 */
+	border-radius: 5px;
+	box-shadow: 19px 8px 5px white;
+	height: 10px;
+	width: 10px;
+}
+
+/* 鼻子下划线 */
+.nose_line {
+	position: absolute;
+	height: 100px;
+	width: 3px;
+	background-color: black;
+	top: 143px;
+	left: 155px;
+	z-index: 4;
+}
+
+/* 眼睛 */
+.eyes {
+	position: relative;
+	z-index: 4;
+}
+
+/* 眼眶 */
+.eye {
+	position: absolute;
+	width: 72px;
+	height: 82px;
+	background-color: white;
+	border: 2px solid #000;
+	border-radius: 35px;
+	top: 40px;
+
+}
+
+/* 眼睛以及位置 */
+.eye_left_black {
+	position: relative;
+	/* border: 2px solid #000; */
+	width: 14px;
+	height: 14px;
+	border-radius: 14px;
+	top: 40px;
+	background-color: #000000;
+	left: 50px;
+}
+
+.eye_right_black {
+	position: relative;
+	/* border: 2px solid #000; */
+	width: 14px;
+	height: 14px;
+	border-radius: 14px;
+	top: 40px;
+	background-color: #000000;
+	left: 7px;
+}
+
+/* 眼眶位置 */
+.left {
+	left: 80px;
+}
+
+.right {
+	left: 154px;
+}
+
+/* 胡子 */
+.huzi {
+	position: relative;
+	height: 80px;
+	width: 230px;
+	background: white;
+	top: 120px;
+	left: 40px;
+	border-radius: 15px;
+	z-index: 3;
+}
+
+/* 左边胡子上中下 */
+.huzi_1 {
+	left: 0;
+	top: 25px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+.huzi_2 {
+	left: -2px;
+	top: 45px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+.huzi_3 {
+	left: 0;
+	top: 65px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+/* 右边胡子上中下 */
+.huzi_4 {
+	left: 170px;
+	top: 25px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+.huzi_5 {
+	left: 172px;
+	top: 45px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+.huzi_6 {
+	left: 170px;
+	top: 65px;
+	background: #333;
+	height: 2px;
+	width: 60px;
+	position: absolute;
+	z-index: 2;
+}
+
+/* 左一 */
+.huzi_1 {
+	transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+}
+
+/* 左下 */
+.huzi_3 {
+	transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
+}
+
+/* 右一 */
+.huzi_4 {
+	transform: rotate(160deg);
+	-webkit-transform: rotate(160deg);
+}
+
+/* 右下 */
+.huzi_6 {
+	transform: rotate(-160deg);
+	-webkit-transform: rotate(-160deg);
+}
+
+/* 嘴巴 */
+.mouth {
+	height: 400px;
+	width: 220px;
+	border-radius: 120px;
+	position: absolute;
+	border-bottom: 3px solid black;
+	top: -157px;
+	left: 45px;
+	z-index: 3;
+}
+
+/* 铃铛带子 */
+.choker {
+	position: relative;
+	z-index: 4;
+	top: -40px;
+	left: 45px;
+	/* 颜色渐变 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#c40), to(#800400));
+	background: -moz-linear-gradient(linear, left top, left bottom, from(#c40), to(#800400));
+	background: -ms-linear-gradient(linear, left top, left bottom, from(#c40), to(#800400));
+	border: 2px solid #000000;
+	height: 20px;
+	width: 220px;
+	border-radius: 10px;
+	z-index: 8;
+}
+
+/* 铃铛 */
+.bell {
+	width: 40px;
+	height: 40px;
+	border: black solid 2px;
+	border-radius: 40px;
+	position: relative;
+	top: 5px;
+	left: 88px;
+	background: #f9f12a;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F9F12A), colors-top(0.5, #e9e11a), to(#a9a100));
+	/* background: -webkit-gradient(top,#f9f12a,#e9e11a 75%,#a9a100); */
+	background: -moz-linear-gradient(top, #f9f12a, #e9e11a 75%, #a9a100);
+	background: -ms-linear-gradient(top, #f9f12a, #e9e11a 75%, #a9a100);
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* 铃铛双下划线 */
+.bell_line {
+	background: #f9f12a;
+	border-radius: 5px;
+	border: 2px black solid;
+	height: 2px;
+	width: 36.8px;
+	position: relative;
+	top: 10px;
+	z-index: 1;
+}
+
+/* 铃铛上的孔 */
+.bell_circle {
+	width: 8px;
+	height: 8px;
+	border: black solid 2px;
+	border-radius: 40px;
+	position: absolute;
+	top: 20px;
+	left: 13.8px;
+	background-color: black;
+}
+
+/* 铃铛缝隙 */
+.bell_under {
+	width: 0.1px;
+	height: 8px;
+	border: black solid 2px;
+	position: absolute;
+	top: 30px;
+	left: 18px;
+	background-color: black;
+}
+/* 铃铛高光 */
+.bell_light{
+	position: absolute;
+	border-radius: 10px;
+	box-shadow: 19px 8px 5px white;
+	height: 10px;
+	width: 10px;
+	left: 2px;
+	top: -8px;
+}
+/* 身体 */
+.bodys {
+	position: relative;
+	top: -310px;
+	z-index: 2;
+}
+
+.body {
+	position: absolute;
+	background: #07bbee;
+	border: black solid 2px;
+	height: 165px;
+	width: 210px;
+	left: 50px;
+	top: 269px;
+	background: -moz-radial-gradient(right top, #07bbee  10%, #07bbee 20%, #10a6ce 75%, #617479);
+	background: -webkit-radial-gradient(right top, #07bbee  10%, #07bbee 20%, #10a6ce 75%, #617479);
+	background: -ms-radial-gradient(right top, #07bbee  10%, #07bbee 20%, #10a6ce 75%, #617479);
+}
+
+/* 白色肚兜 */
+.dudou {
+	background: white;
+	border: #000000 2px solid;
+	border-radius: 85px;
+	height: 170px;
+	width: 170px;
+	left: 70px;
+	top: 230px;
+	position: absolute;
+	z-index: 2;
+}
+
+/* 百宝袋 */
+.pocket {
+	background: white;
+	border: #000000 2px solid;
+	border-radius: 85px;
+	height: 130px;
+	width: 130px;
+	left: 90px;
+	top: 255px;
+	border-top: white solid 1px;
+	position: absolute;
+	z-index: 6;
+}
+
+.pocket_mask {
+	background: white;
+	border: white 2px solid;
+	border-bottom: #000000 solid 2px;
+	height: 60px;
+	width: 130px;
+	left: 90px;
+	top: 260px;
+	position: absolute;
+	z-index: 6;
+}
+
+/* 脚 */
+.foot {
+	position: relative;
+	/* 	height: 30px;
+	width: 200px;
+	border: white 2px solid;
+	z-index: 5; */
+}
+
+.left_foot {
+	position: absolute;
+	height: 30px;
+	width: 110px;
+	border: #000000 2px solid;
+	top: 126px;
+	left: 40px;
+	border-radius: 10px;
+	z-index: 3;
+}
+
+.right_foot {
+	position: absolute;
+	height: 30px;
+	width: 110px;
+	border: #000000 2px solid;
+	top: 126px;
+	left: 160px;
+	border-radius: 10px;
+	z-index: 3;
+}
+
+/* 两只脚之间的圆圈 */
+.foot_circle {
+	position: absolute;
+	height: 13px;
+	width: 13px;
+	border: #000000 2px solid;
+	border-radius: 10px;
+	background-color: white;
+	top: 119px;
+	left: 148.7px;
+	z-index: 2;
+	border-bottom: white 1px solid;
+}
+
+.hand_left {
+	position: relative;
+}
+
+.left_arm {
+	height: 80px;
+	width: 46px;
+	background: #07BBEE;
+	border: #000000 2px solid;
+	position: absolute;
+	transform: rotate(50deg);
+	-webkit-transform: rotate(50deg);
+	position: absolute;
+	left: 10px;
+	top: -56px;
+	z-index: 0;
+}
+.left_circle{
+	position: absolute;
+	height: 55px;
+	width: 55px;
+	border: black solid 2px;
+	border-radius: 50px;
+	background: white;
+	left: -36px;
+	top: -7px;
+	
+}
+.right_arm{
+	height: 80px;
+	width: 46px;
+	background: #07BBEE;
+	border: #000000 2px solid;
+	position: absolute;
+	transform: rotate(-50deg);
+	-webkit-transform: rotate(-50deg);
+	position: absolute;
+	left: 255px;
+	top:275px;
+	z-index: 0;
+}
+.right_circle{
+	position: absolute;
+	height: 55px;
+	width: 55px;
+	border: black solid 2px;
+	border-radius: 50px;
+	background: white;
+	left: 290px;
+	top: 320px;
+}
+#time{
+	position: absolute;
+	top: 1px; 
+}
+		</style>
+	</head>
+	<body>
+		<div class="doraemon">
+			<div class="head">
+				<div class="eyes">
+					<div class="eye right">
+						<div class="eye_right_black">
+							<!-- 右眼睛 -->
+						</div>
+					</div>
+					<div class="eye left">
+						<div class="eye_left_black">
+							<!-- 左眼睛 -->
+						</div>
+					</div>
+				</div>
+				<div class="face">
+					<div class="white">
+						<!-- 面部白色底 -->
+					</div>
+					<div class="nose">
+						<div class="nose_light">
+							<!-- 鼻子 -->
+						</div>
+					</div>
+					<div class="nose_line">
+						<!-- 鼻子下划线 -->
+					</div>
+					<div class="mouth">
+						<!-- 嘴巴 -->
+					</div>
+					<div class="huzi">
+						<!-- 六根胡子 -->
+						<div class="huzi_1">
+
+						</div>
+						<div class="huzi_2">
+
+						</div>
+						<div class="huzi_3">
+
+						</div>
+						<div class="huzi_4">
+
+						</div>
+						<div class="huzi_5">
+
+						</div>
+						<div class="huzi_6">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="choker">
+				<div class="bell">
+					<!-- 铃铛 -->
+					<div class="bell_line">
+
+					</div>
+					<div class="bell_circle">
+
+					</div>
+					<div class="bell_under">
+
+					</div>
+					<div class="bell_light">
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bodys">
+				<!-- 身体 -->
+				<div class="body">
+					<!-- 身体 -->
+				</div>
+				<div class="dudou">
+					<!-- 肚兜 -->
+				</div>
+				<div class="pocket">
+					<!-- 百宝袋 -->
+				</div>
+				<div class="pocket_mask">
+					<!-- 遮住百宝袋上半部分 -->
+				</div>
+			</div>
+			<div class="hand_left">
+				<!-- 左手 -->
+				<div class="left_arm">
+					<!-- 手臂 -->
+				</div>
+				<div class="left_circle">
+					<!-- 小圆手 -->
+				</div>
+			</div>
+			<div class="hand_right">
+				<!-- 右手 -->
+				<div class="right_arm">
+					<!-- 手臂 -->
+				</div>
+				<div class="right_circle">
+					<!-- 小圆手 -->
+				</div>
+			</div>
+			<div class="foot">
+				<!-- 脚 -->
+				<div class="left_foot">
+					<!-- 左脚 -->
+				</div>
+				<div class="right_foot">
+					<!-- 右脚 -->
+				</div>
+				<div class="foot_circle">
+					<!-- 两只脚之间的圆圈 -->
+				</div>
+			</div>
+		</div>
+		<div id="time">
+			2023.6.17
+		</div>
+	</body>
+</html>
